@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:14.3 # Preguntar a matias la version de postgres que el usa
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "sermaluc"
+      POSTGRES_DB: ${DB_NAME}
+    container_name: desafio
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
